@@ -88,8 +88,8 @@
                                 ${project.basedir}/src/main/resources/openapi.yaml
                             </inputSpec>
                             <generatorName>spring</generatorName>
-                            <apiPackage>io.reflectoring.api</apiPackage>
-                            <modelPackage>io.reflectoring.model</modelPackage>
+                            <apiPackage>com.capgemini.googly.generated.api</apiPackage>
+                            <modelPackage>com.capgemini.googly.generated.model</modelPackage>
                             <supportingFilesToGenerate>
                                 ApiUtil.java
                             </supportingFilesToGenerate>
