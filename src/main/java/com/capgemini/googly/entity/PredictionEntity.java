@@ -12,6 +12,7 @@ import java.util.Objects;
 
 @Entity
 @ToString
+@NoArgsConstructor
 public class PredictionEntity {
     @Id
     @GeneratedValue
@@ -71,6 +72,14 @@ public class PredictionEntity {
     }
 
     public void setWinCertainty(Double winCertainty) {
+        this.winCertainty = winCertainty;
+    }
+
+    public PredictionEntity(Long teamOneId, Long teamTwoId, LocalDate dateOfPrediction, Long winner, Double winCertainty) {
+        this.teamOneId = teamOneId;
+        this.teamTwoId = teamTwoId;
+        this.dateOfPrediction = dateOfPrediction;
+        this.winner = winner;
         this.winCertainty = winCertainty;
     }
 }
