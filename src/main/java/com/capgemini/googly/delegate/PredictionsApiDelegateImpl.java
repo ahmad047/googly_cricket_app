@@ -20,7 +20,8 @@ public class PredictionsApiDelegateImpl implements PredictionsApiDelegate {
 
     @Override
     public ResponseEntity<Prediction> getPredictedWinner(Long teamOneId, Long teamTwoId) {
-        return PredictionsApiDelegate.super.getPredictedWinner(teamOneId, teamTwoId);
+        Prediction prediction = predictionService.getPredictedWinner(teamOneId, teamTwoId);
+        return ResponseEntity.status(HttpStatus.OK).body(prediction);
     }
 
     @Override

@@ -4,7 +4,6 @@ import com.capgemini.googly.entity.PredictionEntity;
 import com.capgemini.googly.generated.model.Prediction;
 import com.capgemini.googly.generated.model.Team;
 import com.capgemini.googly.mapper.PredictionMapper;
-import com.capgemini.googly.mapper.TeamMapper;
 import com.capgemini.googly.repository.PredictionRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,6 +16,8 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class PredictionService {
     private final PredictionRepository predictionRepository;
+    private final TeamService teamService;
+    private final PredictWinner predictWinner;
 
     public Prediction getPredictionById(Long id) {
         Optional<PredictionEntity> predictionEntity = predictionRepository.findById(id);
@@ -29,4 +30,13 @@ public class PredictionService {
         List<Prediction> predictions = predictionEntities.stream().map(PredictionMapper.INSTANCE::mapTo).collect(Collectors.toList());
         return predictions;
     }
+
+    public Prediction getPredictedWinner(Long teamOneId, Long teamTwoId) {
+        Team teamOne = teamService.getTeamById(teamOneId);
+        Team teamTwo = teamService.getTeamById(teamTwoId);
+        PredictionEntity predictionEntity = predictWinner.predictWinner(teamOne, teamTwo);
+        Prediction prediction = PredictionMapper.INSTANCE.mapTo(predictionEntity);
+        return prediction;
+    }
+
 }
