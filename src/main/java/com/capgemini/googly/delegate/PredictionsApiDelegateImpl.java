@@ -31,7 +31,7 @@ public class PredictionsApiDelegateImpl implements PredictionsApiDelegate {
 
     @Override
     public ResponseEntity<Prediction> getPredictionById(Long predictionId) {
-        Optional<Prediction> prediction = predictionRepository.findById(predictionId);
-        return ResponseEntity.status(HttpStatus.OK).body(prediction.get());
+        Prediction prediction = predictionService.getPredictionById(predictionId);
+        return ResponseEntity.status(HttpStatus.OK).body(prediction);
     }
 }
