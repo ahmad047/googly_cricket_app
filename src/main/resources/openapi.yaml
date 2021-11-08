@@ -73,6 +73,32 @@ paths:
           description: Predictions Not Found
         '500':
           description: Internal Server Error
+  /predictions/{predictionId}:
+    get:
+      summary: find prediction from ID
+      description: ''
+      operationId: getPredictionById
+      parameters:
+        - name: predictionId
+          in: path
+          description: ID of prediction to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Prediction'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Team not found
+        '500':
+          description: Internal Server Error
   '/predictions/predict-winner':
     get:
       summary: return predicted winner from two teams

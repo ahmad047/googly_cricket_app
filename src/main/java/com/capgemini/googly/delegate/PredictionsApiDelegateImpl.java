@@ -2,14 +2,17 @@ package com.capgemini.googly.delegate;
 
 import com.capgemini.googly.generated.api.PredictionsApiDelegate;
 import com.capgemini.googly.generated.model.Prediction;
+import com.capgemini.googly.generated.model.Team;
 import com.capgemini.googly.repositories.PredictionRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 @AllArgsConstructor
@@ -28,6 +31,9 @@ public class PredictionsApiDelegateImpl implements PredictionsApiDelegate {
         return ResponseEntity.status(HttpStatus.OK).body(predictions);
     }
 
-
-
+    @Override
+    public ResponseEntity<Prediction> getPredictionById(Long predictionId) {
+        Optional<Prediction> prediction = predictionRepository.findById(predictionId);
+        return ResponseEntity.status(HttpStatus.OK).body(prediction.get());
+    }
 }
