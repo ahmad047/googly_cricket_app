@@ -1,4 +1,4 @@
-package com.capgemini.googly.repositories;
+package com.capgemini.googly.repository;
 
 import com.capgemini.googly.generated.model.Prediction;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -18,8 +18,8 @@ public class TeamsApiDelegateImpl implements TeamsApiDelegate {
 
     @Override
     public ResponseEntity<Team> getTeamById(Long teamId) {
-        Optional<Team> team = teamRepository.findById(teamId);
-        return ResponseEntity.status(HttpStatus.OK).body(team.get());
+        Team team = teamService.getTeamById(teamId);
+        return ResponseEntity.status(HttpStatus.OK).body(team);
     }
 
     @Override

@@ -2,13 +2,12 @@ package com.capgemini.googly.delegate;
 
 import com.capgemini.googly.generated.api.PredictionsApiDelegate;
 import com.capgemini.googly.generated.model.Prediction;
-import com.capgemini.googly.repositories.PredictionRepository;
+import com.capgemini.googly.repository.PredictionRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
