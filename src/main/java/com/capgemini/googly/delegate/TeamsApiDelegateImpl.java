@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 @AllArgsConstructor
@@ -17,7 +18,8 @@ public class TeamsApiDelegateImpl implements TeamsApiDelegate {
 
     @Override
     public ResponseEntity<Team> getTeamById(Long teamId) {
-        return TeamsApiDelegate.super.getTeamById(teamId);
+        Optional<Team> team = teamRepository.findById(teamId);
+        return ResponseEntity.status(HttpStatus.OK).body(team.get());
     }
 
     @Override
