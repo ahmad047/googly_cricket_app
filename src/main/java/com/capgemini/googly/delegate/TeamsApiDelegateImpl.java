@@ -2,7 +2,7 @@ package com.capgemini.googly.delegate;
 
 import com.capgemini.googly.generated.api.TeamsApiDelegate;
 import com.capgemini.googly.generated.model.Team;
-import com.capgemini.googly.repositories.TeamRepository;
+import com.capgemini.googly.service.TeamService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import java.util.List;
 @Component
 @AllArgsConstructor
 public class TeamsApiDelegateImpl implements TeamsApiDelegate {
-    private final TeamRepository teamRepository;
+    private final TeamService teamService;
 
     @Override
     public ResponseEntity<Team> getTeamById(Long teamId) {
@@ -22,7 +22,7 @@ public class TeamsApiDelegateImpl implements TeamsApiDelegate {
 
     @Override
     public ResponseEntity<List<Team>> getTeams() {
-        List<Team> teams = teamRepository.findAll();
+        List<Team> teams = teamService.getAllTeams();
         return ResponseEntity.status(HttpStatus.OK).body(teams);
     }
 }
