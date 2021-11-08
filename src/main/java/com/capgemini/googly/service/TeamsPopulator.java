@@ -1,4 +1,4 @@
-package com.capgemini.googly.services;
+package com.capgemini.googly.service;
 
 import com.capgemini.googly.generated.model.Team;
 
