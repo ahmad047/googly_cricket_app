@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 @AllArgsConstructor
@@ -28,6 +29,9 @@ public class PredictionsApiDelegateImpl implements PredictionsApiDelegate {
         return ResponseEntity.status(HttpStatus.OK).body(predictions);
     }
 
-
-
+    @Override
+    public ResponseEntity<Prediction> getPredictionById(Long predictionId) {
+        Optional<Prediction> prediction = predictionRepository.findById(predictionId);
+        return ResponseEntity.status(HttpStatus.OK).body(prediction.get());
+    }
 }
