@@ -142,7 +142,10 @@ components:
           type: string
           format: date
           example: '2021-01-01'
-        teamOnePercentWinLikelyhood:
+        winner:
+          type: integer
+          format: int64
+        winCertainty:
           type: number
           format: double
           minimum: 0
