@@ -5,7 +5,7 @@ Instructions for setting up MySql database: -
 
 CREATE DATABASE googly;  
 
-CREATE TABLE googly.teams(id INT UNSIGNED NOT NULL auto_increment , name VARCHAR(250) NOT NULL , PRIMARY KEY(id));  
+CREATE TABLE googly.team(id INT UNSIGNED NOT NULL auto_increment , name VARCHAR(250) NOT NULL , PRIMARY KEY(id));  
 
 INSERT INTO googly.teams (name) VALUES ('Afghanistan');  
 INSERT INTO googly.teams (name) VALUES ('Australia');  
