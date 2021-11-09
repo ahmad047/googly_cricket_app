@@ -17,8 +17,6 @@ import java.util.stream.Collectors;
 public class TeamService {
     private TeamRepository teamRepository;
 
-    private SportsMonks sportsmonks;
-
     public Team getTeamById(Long id) {
         Optional<TeamEntity> teamEntity = Optional.ofNullable(teamRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Team", "id", id)));
@@ -27,15 +25,8 @@ public class TeamService {
     }
 
     public List<Team> getAllTeams() {
-        sportsmonks.getTeams();
         List<TeamEntity> teamEntities = teamRepository.findAll();
         List<Team> teams = teamEntities.stream().map(TeamMapper.INSTANCE::mapTo).collect(Collectors.toList());
         return teams;
     }
-
-
-
-
-
-
 }
