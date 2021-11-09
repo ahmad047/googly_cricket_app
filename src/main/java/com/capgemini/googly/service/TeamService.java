@@ -2,12 +2,12 @@ package com.capgemini.googly.service;
 
 import com.capgemini.googly.entity.TeamEntity;
 import com.capgemini.googly.exception.ResourceNotFoundException;
+import com.capgemini.googly.feignclients.SportsMonks;
 import com.capgemini.googly.generated.model.Team;
 import com.capgemini.googly.mapper.TeamMapper;
 import com.capgemini.googly.repository.TeamRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
