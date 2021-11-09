@@ -19,4 +19,12 @@ public class Ranking {
     public void setPosition(Integer position) {
         this.position = position;
     }
+
+    @Override
+    public String toString() {
+        return "Ranking{" +
+                "name='" + name + '\'' +
+                ", position=" + position +
+                '}';
+    }
 }

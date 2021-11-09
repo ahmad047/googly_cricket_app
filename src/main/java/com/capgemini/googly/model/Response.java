@@ -12,4 +12,11 @@ public class Response {
     public void setData(List<TeamRanking> data) {
         this.data = data;
     }
+
+    @Override
+    public String toString() {
+        return "Response{" +
+                "data=" + data +
+                '}';
+    }
 }

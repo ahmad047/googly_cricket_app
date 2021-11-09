@@ -12,4 +12,11 @@ public class TeamRanking {
     }
 
     List<Ranking> team;
+
+    @Override
+    public String toString() {
+        return "TeamRanking{" +
+                "teams=" + team +
+                '}';
+    }
 }
