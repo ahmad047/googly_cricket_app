@@ -17,8 +17,8 @@ public class TeamsApiDelegateImpl implements TeamsApiDelegate {
     private final TeamService teamService;
 
     @Override
-    public ResponseEntity<Optional<Team>> getTeamById(Long teamId) {
-        Optional<Team> team = Optional.ofNullable(teamService.getTeamById(teamId));
+    public ResponseEntity<Team> getTeamById(Long teamId) {
+        Team team = teamService.getTeamById(teamId);
         return ResponseEntity.status(HttpStatus.OK).body(team);
     }
 
