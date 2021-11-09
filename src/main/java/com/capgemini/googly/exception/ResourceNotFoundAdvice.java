@@ -12,7 +12,7 @@ public class ResourceNotFoundAdvice {
     @ResponseBody
     @ExceptionHandler(ResourceNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String employeeNotFoundHandler(ResourceNotFoundException ex) {
+    String resourceNotFoundHandler(ResourceNotFoundException ex) {
         return ex.getMessage();
     }
 }
