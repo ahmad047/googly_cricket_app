@@ -40,13 +40,16 @@ public class PredictWinner {
         }
 
         Long winner;
+        Double winCertainty;
 
         if (teamOneRanking > teamTwoRanking) {
             winner = teamTwo.getId();
+            winCertainty = 50D + (teamOneRanking - teamTwoRanking) * 2.75;
         } else {
             winner = teamOne.getId();
+            winCertainty = 50D + (teamTwoRanking - teamOneRanking) * 2.75;
         }
 
-        return new PredictionEntity(teamOne.getId(), teamTwo.getId(), LocalDate.now(), winner, null);
+        return new PredictionEntity(teamOne.getId(), teamTwo.getId(), LocalDate.now(), winner, winCertainty);
     }
 }
