@@ -1,5 +1,6 @@
 package com.capgemini.googly.delegate;
 
+import com.capgemini.googly.exception.ResourceNotFoundException;
 import com.capgemini.googly.generated.api.TeamsApiDelegate;
 import com.capgemini.googly.generated.model.Team;
 import com.capgemini.googly.service.TeamService;
@@ -18,7 +19,8 @@ public class TeamsApiDelegateImpl implements TeamsApiDelegate {
 
     @Override
     public ResponseEntity<Team> getTeamById(Long teamId) {
-        Team team = teamService.getTeamById(teamId);
+        Team team = Optional.ofNullable(teamService.getTeamById(teamId))
+                .orElseThrow(() -> new ResourceNotFoundException("Team", "id", teamId));
         return ResponseEntity.status(HttpStatus.OK).body(team);
     }
 
